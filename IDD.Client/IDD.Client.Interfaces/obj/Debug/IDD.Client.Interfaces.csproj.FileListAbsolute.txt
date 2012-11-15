@@ -1,0 +1,17 @@
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Client.Interfaces.dll
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Client.Interfaces.pdb
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Interfaces.dll
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Exceptions.dll
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Interfaces.pdb
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Exceptions.pdb
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\obj\Debug\IDD.Client.Interfaces.csprojResolveAssemblyReference.cache
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\obj\Debug\IDD.Client.Interfaces.dll
+E:\Projekte\Visual Studio 2012\IDD.Client\IDD.Client.Interfaces\obj\Debug\IDD.Client.Interfaces.pdb
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Client.Interfaces.dll
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Client.Interfaces.pdb
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Interfaces.dll
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Exceptions.dll
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Interfaces.pdb
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\bin\Debug\IDD.Global.Exceptions.pdb
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\obj\Debug\IDD.Client.Interfaces.dll
+E:\Projekte\Visual Studio 2012\IDD_Test\IDD.Client\IDD.Client.Interfaces\obj\Debug\IDD.Client.Interfaces.pdb

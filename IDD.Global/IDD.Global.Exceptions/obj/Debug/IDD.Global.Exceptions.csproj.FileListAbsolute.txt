@@ -1,0 +1,8 @@
+E:\Projekte\Visual Studio 2012\IDD.Server\IDD.Global.Exceptions\bin\Debug\IDD.Global.Exceptions.dll
+E:\Projekte\Visual Studio 2012\IDD.Server\IDD.Global.Exceptions\bin\Debug\IDD.Global.Exceptions.pdb
+E:\Projekte\Visual Studio 2012\IDD.Server\IDD.Global.Exceptions\obj\Debug\IDD.Global.Exceptions.dll
+E:\Projekte\Visual Studio 2012\IDD.Server\IDD.Global.Exceptions\obj\Debug\IDD.Global.Exceptions.pdb
+E:\Projekte\Visual Studio 2012\IDD.Global\IDD.Global.Exceptions\bin\Debug\IDD.Global.Exceptions.dll
+E:\Projekte\Visual Studio 2012\IDD.Global\IDD.Global.Exceptions\bin\Debug\IDD.Global.Exceptions.pdb
+E:\Projekte\Visual Studio 2012\IDD.Global\IDD.Global.Exceptions\obj\Debug\IDD.Global.Exceptions.dll
+E:\Projekte\Visual Studio 2012\IDD.Global\IDD.Global.Exceptions\obj\Debug\IDD.Global.Exceptions.pdb
