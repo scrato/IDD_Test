@@ -29,10 +29,11 @@ namespace IDD.Server.Application
             AddType<ISocketWriter, SocketWriter>(RegistrationMode.CreateOnce);
             AddType<IConnectionModel, ServerToClientModel>(RegistrationMode.CreateAlways);
 
-
+            
             //Module
             AddTypes<IModuleHandler, ChatModule>("Chat");
             AddTypes<IModuleHandler, ConnectionHandler>("Connection");
+            AddTypes<IModuleHandler, IsAliveHandler>("AliveHandler");
 
         }
 

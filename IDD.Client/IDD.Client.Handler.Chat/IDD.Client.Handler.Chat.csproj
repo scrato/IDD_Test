@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IUserList.cs" />
+    <Compile Include="MessageModule.cs" />
+    <Compile Include="NewUserInformHandler.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserList.cs" />
     <Compile Include="PlayerAddModule.cs" />
@@ -53,6 +56,10 @@
     <ProjectReference Include="..\..\IDD.Global\IDD.Global\IDD.Global.csproj">
       <Project>{a7117878-4653-45d2-9a96-68d3ff42ea0a}</Project>
       <Name>IDD.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDD.Client.Interfaces\IDD.Client.Interfaces.csproj">
+      <Project>{b6c8e090-a261-4088-8209-a6b64092f98e}</Project>
+      <Name>IDD.Client.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

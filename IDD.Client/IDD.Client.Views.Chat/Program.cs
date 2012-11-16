@@ -10,7 +10,7 @@ namespace IDD.Client.Views.Chat
 {
     static class Program
     {
-        public static IAppContext AppContext { get; private set; }
+        private static IAppContext _context;
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
@@ -18,11 +18,17 @@ namespace IDD.Client.Views.Chat
         static void Main()
         {
 
-            
-            AppContext = new AppContext();
+
+
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new MainView(AppContext));
+
+            _context = new AppContext();
+            MainView view = new MainView(_context);
+            _context.AddObject<IMessageOutput>(view);
+
+
+            System.Windows.Forms.Application.Run(view);
         }
     }
 }

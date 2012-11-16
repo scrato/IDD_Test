@@ -17,20 +17,46 @@ namespace IDD.Server.Views.Console
    
     public class Program : IMessageOutput
     {
-        public static IAppContext AppContext { get; private set; }
         private static ICommunicationHandler _comm;
 
        
         static void Main(string[] args)
         {
             Program p = new Program();
-            _comm = new CommunicationHandler(p, new AppContext());
-            _comm.Connect();
+            p.Start();
+
          }
 
-        public void showText(OutputType type, string text)
+        public void Start()
         {
-            throw new NotImplementedException();
+
+            AppContext app = new AppContext();
+            app.AddObject<IMessageOutput>(this);
+            _comm = new CommunicationHandler(app);
+            _comm.Connect();
+        }
+        public void showText(OutputType type, params string[] text)
+        {
+            switch (type)
+            {
+                case OutputType.Message:
+                    System.Console.WriteLine("{0} sendet die Nachricht {1} - {2}",text[0],text[1],text[2]);
+                    break;
+                case OutputType.InitializionInfo:
+                    foreach (var error in text)
+	                    {
+                            System.Console.WriteLine(error);
+	                    }
+                     
+                    break;
+                case OutputType.Error:
+                    break;
+                case OutputType.NewPlayer:
+                    System.Console.WriteLine("{0} ist jetzt angemeldet", text[0]);
+                    break;
+                default:
+                    break;
+            }
         }
     }
         

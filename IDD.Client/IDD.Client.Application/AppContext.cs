@@ -1,5 +1,6 @@
 ﻿using IDD.Client.Communication;
 using IDD.Client.Handler.Connection;
+using IDD.Client.Handler.Chat;
 using IDD.Client.Interfaces;
 using IDD.Client.Model;
 using IDD.Global;
@@ -26,12 +27,13 @@ namespace IDD.Client.Application
 
             AddType<IConnector, Connector>(RegistrationMode.CreateOnce);
             AddType<IConnectionModel, ClientToServerModel>(RegistrationMode.CreateOnce);
-            AddType<IClientToServerModel, ClientToServerModel>(RegistrationMode.CreateOnce);
 
             //Module
-            //AddTypes<IModuleHandler, ChatModuleHandler>("Chat");
+            AddTypes<IModuleHandler, MessageModule>("Chat");
+            AddTypes<IModuleHandler, NewUserInformHandler>("InformAboutUsers");
+            AddTypes<IModuleHandler, PlayerAddModule>("New User");
             AddTypes<IModuleHandler, ConnectionModule>("Connection");
-
+            AddTypes<IModuleHandler, IsAliveHandler>("AliveHandler");
         }
     }
 }

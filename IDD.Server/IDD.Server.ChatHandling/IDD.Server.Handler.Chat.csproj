@@ -43,6 +43,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\IDD.Global\IDD.Global.Exceptions\IDD.Global.Exceptions.csproj">
+      <Project>{d79f17ba-8f09-42ae-8d79-17254e338880}</Project>
+      <Name>IDD.Global.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\IDD.Global\IDD.Global.Interfaces\IDD.Global.Interfaces.csproj">
       <Project>{62ec8de6-6b4f-4b73-800c-481fe861da93}</Project>
       <Name>IDD.Global.Interfaces</Name>

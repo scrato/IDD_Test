@@ -15,5 +15,7 @@ namespace IDD.Global.Interfaces
         void SendBytes(PaketType type, byte[] content, int id, Socket socket);
         void SendMessage(PaketType type, string content, int id, Socket socket);
         void SendInt(PaketType type, int content, int id, Socket socket);
+
+        void SendTime(PaketType paketType, long ms, int id, Socket socket);
     }
 }

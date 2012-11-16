@@ -16,15 +16,16 @@ namespace IDD.Client
     {
         private Binding ipBinding;
         private Binding portBinding;
+        private Binding userBinding;
         public ConnectionWindow(IClientToServerModel config)
         {
             InitializeComponent();
              ipBinding = new Binding("Text", config, "IP");
              portBinding  = new Binding("Text", config, "Port");
-
+             userBinding = new Binding("Text", config, "Username");
              tbIP.DataBindings.Add(ipBinding);
              tbPort.DataBindings.Add(portBinding);
-             tbNick.DataBindings.Add(new Binding("Text", config, "Username"));
+             tbNick.DataBindings.Add(userBinding);
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -35,6 +36,9 @@ namespace IDD.Client
         private void Connect()
         {
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            ipBinding.WriteValue();
+            portBinding.WriteValue();
+            userBinding.WriteValue();
             this.Close();
         }
 

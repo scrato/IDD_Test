@@ -11,7 +11,6 @@ namespace IDD.Server.Interfaces
 {
     public  interface ICommunicationHandler
     {
-          IMessageOutput View { get; set; }
           void Connect();
         
     }

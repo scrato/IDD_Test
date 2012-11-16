@@ -16,7 +16,7 @@ using IDD.Global.Interfaces;
 using IDD.Client.Interfaces;
 namespace IDD.Client
 {
-    public partial class MainView : Form, IMessageOutput
+    public partial class MainView : FormMessageOutput
     {
         private IClientToServerModel _conn;
         private IAppContext _appContext;
@@ -24,7 +24,7 @@ namespace IDD.Client
         {
             InitializeComponent();
             _appContext = appContext;
-            _conn = _appContext.GetObject<IClientToServerModel>();
+            _conn = (IClientToServerModel)_appContext.GetObject<IConnectionModel>();
             _conn.IP = "127.0.0.1";
             _conn.Port = 51414;
             _conn.Username = "Default";
@@ -54,29 +54,38 @@ namespace IDD.Client
             IModuleHandler module = _appContext.GetAllObjects<IModuleHandler>()
                                     .Where(x => x.HandleType == PaketType.Message)
                                     .FirstOrDefault();
+            module.Do(p);
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
             say(tbText.Text);
             tbText.Clear();
-        }       
-
-
-        public void addText(string text, string username)
-        {
-            string result = String.Empty;
-            result += "[" + DateTime.Now.ToShortTimeString() + "-" + username +"]: ";
-            result += text;
-
-
-            lbChat.Items.Add(result);
         }
 
-        private void addUser(string username)
+
+        public override void showText(OutputType type, params string[] text)
         {
-            lbChat.Items.Add("Der User " + username +" hat den Chat betreten");
-            lbUser.Items.Add(username);
+            string result = String.Empty;
+            switch (type)
+            {
+                case OutputType.Message:
+                    lbChat.Items.Add("[" + DateTime.Now.ToShortTimeString() + "-" + text[0] + "]: " + text[1]);
+                    break;
+                case OutputType.InitializionInfo:
+                    foreach (string user in text)
+                    {
+                        lbUser.Items.Add(user);
+                    }
+                    break;
+                case OutputType.Error:
+                    break;
+                case OutputType.NewPlayer:
+                    lbChat.Items.Add("[Spieler " + text[0] + " ist dazugekommen]");
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void tbText_KeyDown(object sender, KeyEventArgs e)
@@ -88,9 +97,5 @@ namespace IDD.Client
             }
         }
 
-        public void showText(OutputType type, string text)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

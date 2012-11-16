@@ -3,6 +3,7 @@ using IDD.Global.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,13 +22,16 @@ namespace IDD.Client.Handler.Connection
             get { return PaketType.ConnectionInfo; }
         }
 
-        public void HandleMessage(byte[] content, int id, IConnectionModel model)
+        public void HandleMessage(byte[] content, int id, Socket socket, params object[] args)
         {
-            int myID = BitConverter.ToInt32(content, 0);
-            _context.GetObject<IConnectionModel>().Id = myID;
+
+            int myID = BitConverter.ToInt32(content,0);
+            IConnectionModel model = _context.GetObject<IConnectionModel>();
+            model.Id = myID;  
+            
         }
 
-        public void Do(object[] args)
+        public void Do(params object[] args)
         {
             ISocketWriter writer = _context.GetObject<ISocketWriter>();
             IConnectionModel model = _context.GetObject<IConnectionModel>();

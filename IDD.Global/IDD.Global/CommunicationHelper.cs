@@ -102,5 +102,10 @@ namespace IDD.Global
         {
             return enc.GetString(content);
         }
+
+        public static byte[] EncodeString(string content)
+        {
+            return enc.GetBytes(content);
+        }
     }
 }

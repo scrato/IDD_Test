@@ -17,11 +17,9 @@ namespace IDD.Server.Communication
         private IAppContext _appcontext;
         private TcpListener _listener;
         public IClientList Clients { get; set; }
-        public IMessageOutput View { get; set; }
 
-        public CommunicationHandler(IMessageOutput view, IAppContext context)
+        public CommunicationHandler(IAppContext context)
         {
-            View = view;
             _appcontext = context;
             Clients = _appcontext.GetObject<IClientList>();
         }
@@ -40,7 +38,6 @@ namespace IDD.Server.Communication
                      lock (Clients)
                      {
                     BackgroundWorker bgw = new BackgroundWorker();
-                    IConnectionModel client = Clients.Add(s);
                     ISocketListener clientListener = _appcontext.
                                                         GetObject<ISocketListener>();
                     ITypeTranslator translator = _appcontext.
@@ -54,7 +51,7 @@ namespace IDD.Server.Communication
 
                    
                         //View.showTextDelegate(OutputType.InitializionInfo, "Client " + client.Id + " hat sich verbunden", "Server");
-                        bgw.RunWorkerAsync(client.Socket);
+                    bgw.RunWorkerAsync(s);
                     }
 
 

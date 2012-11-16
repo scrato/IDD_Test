@@ -8,12 +8,13 @@ namespace IDD.Global.Interfaces
 {
     public interface IMessageOutput
     {
-        void showText(OutputType type, string text);
+        void showText(OutputType type, params string[] text);
     }
     public enum OutputType
     {
         Message,
         InitializionInfo,
-        Error
+        Error,
+        NewPlayer
     }
 }

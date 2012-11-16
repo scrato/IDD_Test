@@ -29,8 +29,8 @@ namespace IDD.Global
 
         public void SendMessage(PaketType type, string content, int id, Socket socket)
         {
-            UTF8Encoding enc = new UTF8Encoding();
-            byte[] contentBytes = enc.GetBytes(content);
+            
+            byte[] contentBytes = CommunicationHelper.EncodeString(content);
             SendBytes(type, contentBytes, id, socket);
         }
 
@@ -45,6 +45,13 @@ namespace IDD.Global
         public void SendInt(PaketType type, int content, int id, Socket socket)
         {
             byte[] contentBytes = BitConverter.GetBytes(content);
+            SendBytes(type, contentBytes, id, socket);
+        }
+
+
+        public void SendTime(PaketType type, long ms, int id, Socket socket)
+        {
+            byte[] contentBytes = BitConverter.GetBytes(ms);
             SendBytes(type, contentBytes, id, socket);
         }
     }

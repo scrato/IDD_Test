@@ -32,7 +32,7 @@ namespace IDD.Server.Communication.ClientHandling
         public int getNextAvailableClientId()
         {
            
-            return (clients.Count == 0)? 0 : clients.Max(x => x.Id);
+            return (clients.Count == 0)? 0 : clients.Max(x => x.Id)+1;
         }
 
         public IEnumerator<IConnectionModel> GetEnumerator()
