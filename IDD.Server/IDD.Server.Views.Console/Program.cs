@@ -17,7 +17,7 @@ namespace IDD.Server.Views.Console
    
     public class Program : IMessageOutput
     {
-        private static ICommunicationHandler _comm;
+        private static ICommunicationStarter _comm;
 
        
         static void Main(string[] args)
@@ -32,7 +32,7 @@ namespace IDD.Server.Views.Console
 
             AppContext app = new AppContext();
             app.AddObject<IMessageOutput>(this);
-            _comm = new CommunicationHandler(app);
+            _comm = new CommunicationStarter(app);
             _comm.Connect();
         }
         public void showText(OutputType type, params string[] text)

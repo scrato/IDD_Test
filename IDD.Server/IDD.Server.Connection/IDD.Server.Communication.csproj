@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="ClientHandling\ClientList.cs" />
     <Compile Include="ClientHandling\ServerToClientModel.cs" />
-    <Compile Include="CommunicationHandler.cs" />
+    <Compile Include="CommunicationStarter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

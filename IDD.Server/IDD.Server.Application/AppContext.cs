@@ -20,20 +20,19 @@ namespace IDD.Server.Application
         public override void InitializeContainer(IUnityContainer _container)
         {
             AddObject<IAppContext>(this);
-            AddType<ICommunicationHandler, CommunicationHandler>(RegistrationMode.CreateOnce);
+            AddType<ICommunicationStarter, CommunicationStarter>(RegistrationMode.CreateOnce);
             AddType<ITypeTranslator, TypeTranslation>(RegistrationMode.CreateOnce);
 
             // Client und ClientListener
             AddType<IClientList, ClientList>(RegistrationMode.CreateOnce);
-            AddType<ISocketListener, SocketListener>(RegistrationMode.CreateOnce);
-            AddType<ISocketWriter, SocketWriter>(RegistrationMode.CreateOnce);
+            AddType<ISocketListener, SocketListener>(RegistrationMode.CreateAlways);
+            AddType<ISocketWriter, SocketWriter>(RegistrationMode.CreateAlways);
             AddType<IConnectionModel, ServerToClientModel>(RegistrationMode.CreateAlways);
 
             
             //Module
             AddTypes<IModuleHandler, ChatModule>("Chat");
             AddTypes<IModuleHandler, ConnectionHandler>("Connection");
-            AddTypes<IModuleHandler, IsAliveHandler>("AliveHandler");
 
         }
 

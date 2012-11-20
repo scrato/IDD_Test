@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IDD.Server.Interfaces
 {
-    public  interface ICommunicationHandler
+    public  interface ICommunicationStarter
     {
           void Connect();
         

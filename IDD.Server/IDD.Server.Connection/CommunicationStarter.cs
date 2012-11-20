@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace IDD.Server.Communication
 {
-    public class CommunicationHandler : ICommunicationHandler
+    public class CommunicationStarter : ICommunicationStarter
     {
         private IAppContext _appcontext;
         private TcpListener _listener;
         public IClientList Clients { get; set; }
 
-        public CommunicationHandler(IAppContext context)
+        public CommunicationStarter(IAppContext context)
         {
             _appcontext = context;
             Clients = _appcontext.GetObject<IClientList>();
@@ -37,21 +37,19 @@ namespace IDD.Server.Communication
                    Socket s = _listener.AcceptSocket();
                      lock (Clients)
                      {
-                    BackgroundWorker bgw = new BackgroundWorker();
+                    BackgroundWorker clientListenerWorker = new BackgroundWorker();
                     ISocketListener clientListener = _appcontext.
                                                         GetObject<ISocketListener>();
                     ITypeTranslator translator = _appcontext.
                                                         GetObject<ITypeTranslator>();
                     IEnumerable<IModuleHandler> modules = _appcontext.
                                                         GetAllObjects<IModuleHandler>();
+                    clientListenerWorker.DoWork += new DoWorkEventHandler(clientListener.Start);
+                    clientListenerWorker.RunWorkerAsync(s);
 
 
-                    bgw.DoWork += new DoWorkEventHandler(clientListener.Start);
-                    
+                    BackgroundWorker clientIsAliveWorker = new BackgroundWorker();
 
-                   
-                        //View.showTextDelegate(OutputType.InitializionInfo, "Client " + client.Id + " hat sich verbunden", "Server");
-                    bgw.RunWorkerAsync(s);
                     }
 
 

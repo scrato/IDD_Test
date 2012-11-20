@@ -100,12 +100,18 @@ namespace IDD.Global
 
         public static string DecodeString(byte[] content)
         {
-            return enc.GetString(content);
+            lock (enc)
+            { 
+                return enc.GetString(content);
+            }
         }
 
         public static byte[] EncodeString(string content)
         {
-            return enc.GetBytes(content);
+            lock (enc)
+            {
+                return enc.GetBytes(content);
+            }
         }
     }
 }

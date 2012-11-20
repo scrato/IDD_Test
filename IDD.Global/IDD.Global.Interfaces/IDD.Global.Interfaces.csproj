@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IAppContext.cs" />
     <Compile Include="IConnectionModel.cs" />
+    <Compile Include="IConnTimeoutHandler.cs" />
     <Compile Include="ISocketListener.cs" />
     <Compile Include="IMessageOutput.cs" />
     <Compile Include="IModuleHandler.cs" />
